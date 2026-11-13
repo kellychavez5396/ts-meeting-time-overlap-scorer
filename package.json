@@ -1,0 +1,17 @@
+{
+  "name": "ts-meeting-time-overlap-scorer",
+  "version": "0.1.0",
+  "description": "Scores overlap of two weekly meeting windows across timezones using a DST reference point.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {}
+}
