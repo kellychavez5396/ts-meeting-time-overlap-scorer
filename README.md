@@ -42,3 +42,10 @@ Comparing meeting times across timezones is easy until DST enters the picture. A
 - A window is a half-open weekly interval on the UTC clock, so a Sunday 23:00 meeting and a Monday 00:00 meeting do not overlap. Week-wrap overlap is handled by trying both placements.
 - `score` divides by the shorter of the two durations, so a short meeting fully inside a long one scores 1. Zero-length meetings are rejected at construction.
 - Invalid timezone names and malformed `HH:MM` strings throw `RangeError` at construction time.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
